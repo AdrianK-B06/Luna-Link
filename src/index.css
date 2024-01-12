@@ -9,6 +9,16 @@ body {
   background-color: #1e252b;
 }
 
+.error {
+  background-image: url("/public/images/Moon 404 page not found.png");
+  height: 57rem;
+  width: auto;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-position: center center;
+  padding: 10rem 10rem 10rem 10rem;
+}
+
 .context {
   width: 100%;
   position: absolute;

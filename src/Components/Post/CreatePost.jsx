@@ -39,7 +39,7 @@ export function CreatePost({ selectedCategory }) {
       const newPost = {
         ...postData,
         key: Date.now().toString(),
-        likes: Math.floor(Math.random() * 1000) + 1,
+        likes: 0,
         isLiked: false,
       };
       setPostsArray([newPost, ...postsArray]);
@@ -55,7 +55,7 @@ export function CreatePost({ selectedCategory }) {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggable: false,
       });
     } else {
       toast.error("Please fill in all fields.", {
@@ -64,22 +64,25 @@ export function CreatePost({ selectedCategory }) {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggable: false,
       });
     }
   };
 
   const toggleLike = (key) => {
-    const updatedPosts = shuffledPosts.map((post) =>
-      post.key === key
-        ? {
-            ...post,
-            isLiked: !post.isLiked,
-            likes: post.isLiked ? post.likes - 1 : post.likes + 1,
-          }
-        : post
-    );
-    setShuffledPosts(updatedPosts);
+    const updateLikes = (posts) =>
+      posts.map((post) =>
+        post.key === key
+          ? {
+              ...post,
+              isLiked: !post.isLiked,
+              likes: post.isLiked ? post.likes - 1 : post.likes + 1,
+            }
+          : post
+      );
+
+    setPostsArray(updateLikes(postsArray));
+    setShuffledPosts(updateLikes(shuffledPosts));
   };
 
   const combinedPosts = [...postsArray, ...shuffledPosts];

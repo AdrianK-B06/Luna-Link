@@ -2,6 +2,7 @@
   height: 88vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .loginContainer {
@@ -42,17 +43,18 @@ h1 {
 .button {
   width: 100%;
   border-radius: 12px;
-  background-color: #15c332;
+  background-color: #12a92b;
   color: #e3e3e3;
-  padding: 10px;
+  padding: 6px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-size: 1.5rem;
 }
 
 .button:hover {
-  background-color: #319f3a;
+  background-color: #206c26;
 }
 
 .forgot:hover {

@@ -1,0 +1,13 @@
+.videoBackground {
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgb(9, 9, 9);
+}
+
+.videoBackground video {
+  margin-top: 7rem;
+  height: 130%;
+}

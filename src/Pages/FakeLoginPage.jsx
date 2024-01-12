@@ -1,18 +1,27 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "./FakeLoginPage.module.css";
+import { useContext } from "react";
+import { UserContext } from "../UserContext";
 
 const FakeLoginPage = () => {
+  const { setIsLoggedIn } = useContext(UserContext);
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Simulate a fake login by checking for specific values
-    if (username.toLowerCase() === "demo" && password === "password123") {
+    if (username.toLowerCase() === "emil" && password === "password123") {
+      setIsLoggedIn(true);
       navigate("/Loggedin");
     } else {
       alert("Invalid username or password");
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleLogin();
     }
   };
 
@@ -26,6 +35,7 @@ const FakeLoginPage = () => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            onKeyDown={handleKeyPress}
             className={styles.input}
           />
         </label>
@@ -36,6 +46,7 @@ const FakeLoginPage = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={handleKeyPress}
             className={styles.input}
           />
         </label>
