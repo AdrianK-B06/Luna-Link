@@ -10,6 +10,11 @@ This React Forum Application is a platform for community discussions where users
 - **Responsive Design**: The application is built with a mobile-first approach, ensuring a seamless experience across various devices and screen sizes.
 - **Interactive UI**: The user interface is interactive, with components such as radio buttons for category selection that enhance the overall user experience.
 
+## Demo login
+
+- **User:** emil
+- **Password:** password123
+
 ## Components
 
 - **CreatePost**: A component where users can create new discussion posts.
